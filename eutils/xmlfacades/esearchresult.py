@@ -25,6 +25,10 @@ class ESearchResult(Base):
         return int(self._xml_root.find('RetStart').text)
 
     @property
+    def querykey(self):
+        return int(self._xml_root.find('QueryKey').text)
+
+    @property
     def ids(self):
         return [int(id) for id in self._xml_root.xpath('/eSearchResult/IdList/Id/text()')]
 
